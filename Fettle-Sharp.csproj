@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{999A4A22-50A1-4719-972A-153D0ED149C4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>FettleSharp</RootNamespace>
+    <AssemblyName>Fettle-Sharp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Fettle\BasicConditions.cs" />
+    <Compile Include="Fettle\Enumeration.cs" />
+    <Compile Include="Fettle\IAction.cs" />
+    <Compile Include="Fettle\ICondition.cs" />
+    <Compile Include="Fettle\IMutableTransitionModel.cs" />
+    <Compile Include="Fettle\IStateMachine.cs" />
+    <Compile Include="Fettle\IStateMachineTemplate.cs" />
+    <Compile Include="Fettle\ITransition.cs" />
+    <Compile Include="Fettle\ITransitionModel.cs" />
+    <Compile Include="Fettle\Void.cs" />
+    <Compile Include="Fettle\Builder\EntryExitActionBuilder.cs" />
+    <Compile Include="Fettle\Builder\IEntryExit.cs" />
+    <Compile Include="Fettle\Builder\IFrom.cs" />
+    <Compile Include="Fettle\Builder\IInternal.cs" />
+    <Compile Include="Fettle\Builder\IOn.cs" />
+    <Compile Include="Fettle\Builder\ITo.cs" />
+    <Compile Include="Fettle\Builder\ITransition.cs" />
+    <Compile Include="Fettle\Builder\IWhen.cs" />
+    <Compile Include="Fettle\Builder\StateMachineBuilder.cs" />
+    <Compile Include="Fettle\Builder\TransitionBuilder.cs" />
+    <Compile Include="Fettle\Impl\AbstractTransition.cs" />
+    <Compile Include="Fettle\Impl\AbstractTransitionModel.cs" />
+    <Compile Include="Fettle\Impl\BasicTransition.cs" />
+    <Compile Include="Fettle\Impl\InternalTransition.cs" />
+    <Compile Include="Fettle\Impl\MutableTransitionModelImpl.cs" />
+    <Compile Include="Fettle\Impl\TemplateBasedStateMachine.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
