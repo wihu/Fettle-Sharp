@@ -57,10 +57,12 @@ public class MutableTransitionModelImpl<S, E, C>
 
 	public void AddEntryAction(S state, IAction<S, E, C> action)
 	{
+		AddAction(state, action, m_EnterActions);
 	}
 
 	public void AddExitAction(S state, IAction<S, E, C> action)
 	{
+		AddAction(state, action, m_ExitActions);
 	}
 
 	private void AddTransition(S fromState, E evt, ITransition<S, E, C> transition)
@@ -79,6 +81,17 @@ public class MutableTransitionModelImpl<S, E, C>
 			map.Add(evt, transitions);
 		}
 		transitions.Add(transition);
+	}
+
+	private void AddAction(S state, IAction<S, E, C> action, StateToActionsMap map)
+	{
+		var actions = (ActionCollection)null;
+		if (!map.TryGetValue(state, out actions))
+		{
+			actions = new ActionCollection();
+			map.Add(state, actions);
+		}
+		actions.Add(action);
 	}
 }
 }
